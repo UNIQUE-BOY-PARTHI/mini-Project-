@@ -80,19 +80,20 @@ import numpy as np
 
 st.subheader('Prediction vs Original')
 
-# Flatten or reshape predictions to 1D
-predict_1d = np.array(predict).reshape(predict.shape[0], -1)[:, -1]  # Take last timestep
-y_test_1d = np.array(y_test).reshape(y_test.shape[0], -1)[:, -1]     # Take last timestep
 
-# Plot
+predict_1d = np.array(predict).reshape(predict.shape[0], -1)[:, -1] 
+y_test_1d = np.array(y_test).reshape(y_test.shape[0], -1)[:, -1]    
+
+
 fig4 = plt.figure(figsize=(8, 6))
-plt.plot(y_test_1d, 'g', label='Original Price')      # Actual values
-plt.plot(predict_1d, 'r', label='Predicted Price')    # Predictions
+plt.plot(y_test_1d, 'g', label='Original Price')      
+plt.plot(predict_1d, 'r', label='Predicted Price')    
 plt.xlabel('Time')
 plt.ylabel('Price')
 plt.legend()
 
-# Show in Streamlit
+
 
 
 st.pyplot(fig4)
+
